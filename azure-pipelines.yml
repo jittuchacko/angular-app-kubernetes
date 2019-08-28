@@ -27,3 +27,9 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      inputs:
+              containerRegistry: '949edaa2-f40d-4805-9280-a4387985b727'
+              repository: 'aksangular'
+              command: 'buildAndPush'
+              Dockerfile: '**/Dockerfile'
