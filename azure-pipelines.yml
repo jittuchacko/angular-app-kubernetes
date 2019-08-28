@@ -33,8 +33,7 @@ stages:
               repository: 'aksangular'
               command: 'buildAndPush'
               Dockerfile: '**/Dockerfile'
-
-stages:
+              
 - stage: PublishBuildArtifacts
   displayName: PublishBuild Artifacts
   jobs:  
