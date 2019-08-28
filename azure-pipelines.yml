@@ -42,6 +42,10 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    - task: CopyFiles@2
+      inputs:
+            Contents: '**'
+            TargetFolder: 'Artifacct'
     - task: PublishBuildArtifacts@1
       inputs:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
