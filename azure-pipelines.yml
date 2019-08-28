@@ -33,3 +33,18 @@ stages:
               repository: 'aksangular'
               command: 'buildAndPush'
               Dockerfile: '**/Dockerfile'
+
+stages:
+- stage: PublishBuildArtifacts
+  displayName: PublishBuild Artifacts
+  jobs:  
+  - job: PublishBuildArtifacts
+    displayName: PublishBuild Artifacts
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: PublishBuildArtifacts@1
+      inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
